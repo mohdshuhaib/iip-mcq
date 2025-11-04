@@ -13,13 +13,22 @@ const questionCard = document.getElementById('question-card');
 
 // --- State ---
 let currentQuestionIndex = 0;
-let questionOrder = Array.from(Array(allQuestions.length).keys()); // [0, 1, 2, ... N-1]
-let answers = new Array(allQuestions.length).fill(null); // Store user's answers
+let answers = []; // Initialize as empty. We'll set the size once the page loads.
 
 // --- Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
-    shuffleQuestions(); // Shuffle on first load
     
+    // --- !! FIX 1: Check if questions loaded !! ---
+    // This stops the crash.
+    if (typeof allQuestions === 'undefined' || allQuestions.length === 0) {
+        questionText.textContent = "Error: questions.js file not loaded or is empty. Please check the file and try again.";
+        console.error("allQuestions is not defined or empty.");
+        return; // Stop execution
+    }
+
+    // Now it's safe to initialize the answers array
+    answers = new Array(allQuestions.length).fill(null);
+
     // Event Listeners
     nextBtn.addEventListener('click', showNextQuestion);
     prevBtn.addEventListener('click', showPreviousQuestion);
@@ -28,6 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
     jumpInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') jumpToQuestion();
     });
+
+    // Start the quiz
+    shuffleQuestions(); // This will shuffle and then call loadQuestion(0)
 });
 
 // --- Core Functions ---
@@ -38,24 +50,25 @@ function loadQuestion(index) {
     void questionCard.offsetWidth; // Trigger reflow
     questionCard.style.animation = 'fadeIn 0.4s ease-out';
 
-    // Find the question using the original ID (index + 1)
-    const questionIndexInArray = allQuestions.findIndex(q => q.id === (index + 1));
-    if (questionIndexInArray === -1) {
-        console.error(`Question with ID ${index + 1} not found in allQuestions array.`);
-        // Handle error, maybe show a message
-        questionText.textContent = `Error: Question ${index + 1} not found. Did you add it to questions.js?`;
+    // --- !! FIX 2: Load by SHUFFLED index, not by ID !! ---
+    // This makes shuffling work.
+    const question = allQuestions[index];
+    
+    if (!question) {
+        console.error(`Question at index ${index} not found.`);
+        questionText.textContent = `Error: Question at index ${index} not found.`;
         optionsList.innerHTML = '';
         relatedContainer.classList.remove('show');
         return;
     }
     
-    const question = allQuestions[questionIndexInArray];
-    
     currentQuestionIndex = index;
     
     // Update UI
+    // We show the question ID, but the counter is based on the shuffled order.
     questionText.textContent = `${question.id}. ${question.question}`;
-    questionCounter.textContent = `Question ${index + 1} / ${allQuestions.length}`;
+    questionCounter.textContent = `Question ${index + 1} of ${allQuestions.length}`;
+    
     optionsList.innerHTML = '';
     relatedContainer.classList.remove('show');
     relatedList.innerHTML = '';
@@ -155,16 +168,25 @@ function shuffleQuestions() {
     answers.fill(null);
     // Reload the first question (which will be a new, random Q1)
     loadQuestion(0);
-    // Alert user
     alert("Questions have been shuffled!");
 }
 
 function jumpToQuestion() {
-    const qNum = parseInt(jumpInput.value);
-    if (qNum >= 1 && qNum <= allQuestions.length) {
-        loadQuestion(qNum - 1); // -1 because arrays are 0-indexed
+    // --- !! FIX 3: Jump to ID, not index !! ---
+    // This finds the right question ID even after shuffling.
+    const qNum = parseInt(jumpInput.value); // This is the question ID (e.g., 5)
+    if (isNaN(qNum)) {
+        alert("Please enter a number.");
+        return;
+    }
+
+    // Find the index in the *current shuffled array* that has this question ID
+    const targetArrayIndex = allQuestions.findIndex(q => q.id === qNum);
+
+    if (targetArrayIndex !== -1) {
+        loadQuestion(targetArrayIndex); // Load that array index
         jumpInput.value = ''; // Clear input
     } else {
-        alert(`Please enter a number between 1 and ${allQuestions.length}.`);
+        alert(`Question with ID ${qNum} not found.`);
     }
 }
