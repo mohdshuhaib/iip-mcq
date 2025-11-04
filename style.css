@@ -1,0 +1,227 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-bg: #f0f4f8;
+    --card-bg: #ffffff;
+    --text-color: #333;
+    --primary-color: #007bff;
+    --hover-color: #0056b3;
+    --correct-color: #28a745;
+    --wrong-color: #dc3545;
+    --neutral-border: #ddd;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* --- Main Container & Header --- */
+.quiz-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.quiz-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 24px;
+    text-align: center;
+}
+
+.header-title {
+    margin: 0 0 16px 0;
+    font-size: 1.8rem;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 16px;
+}
+
+.navigation-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+#question-jump {
+    width: 60px;
+    padding: 6px 8px;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#shuffle-btn, #jump-btn {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+#shuffle-btn:hover, #jump-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.question-counter {
+    margin-top: 16px;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+/* --- Quiz Body & Question Card --- */
+.quiz-body {
+    padding: 30px;
+}
+
+/* Animation for the card */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.question-card {
+    animation: fadeIn 0.4s ease-out;
+}
+
+#question-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.options-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.option {
+    display: block;
+    width: 100%;
+    padding: 14px 20px;
+    background-color: #f9f9f9;
+    border: 2px solid var(--neutral-border);
+    border-radius: 8px;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.option:hover:not(.disabled) {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* States for options */
+.option.correct {
+    background-color: var(--correct-color);
+    color: white;
+    border-color: var(--correct-color);
+    font-weight: 600;
+}
+
+.option.wrong {
+    background-color: var(--wrong-color);
+    color: white;
+    border-color: var(--wrong-color);
+}
+
+.option.disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* --- Pagination --- */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+#prev-btn, #next-btn {
+    background-color: var(--primary-color);
+    color: white;
+    width: 120px;
+}
+
+#prev-btn:hover, #next-btn:hover {
+    background-color: var(--hover-color);
+}
+
+#prev-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* --- Related Questions --- */
+.related-container {
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    display: none; /* Hidden by default */
+}
+
+/* Animation for related section */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.related-container.show {
+    display: block;
+    animation: slideIn 0.5s ease-out;
+}
+
+.related-list .related-item {
+    background-color: #f9f9f9;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.related-item p {
+    margin: 0 0 8px 0;
+    font-weight: 600;
+}
+
+.related-item span {
+    font-weight: 400;
+    color: var(--correct-color);
+}
