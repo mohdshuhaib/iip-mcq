@@ -952,7 +952,7 @@ const allQuestions = [
     related: [135, 137]
   },
   {
-    id: 137,
+    id: 137,.
     question: 'Atlantic charter is an example of',
     options: ["Closed Diplomacy", "Open Diplomacy", "Summit Diplomacy", "Democratic Diplomacy"],
     answer: "Summit Diplomacy",
@@ -1141,7 +1141,7 @@ const allQuestions = [
     related: [9, 24, 161, 164, 167]
   },
   {
-    id: 164,.
+    id: 164,
     question: 'For long time .... played the role of balancer.',
     options: ["UK", "USA", "USSR", "France"],
     answer: "UK",
