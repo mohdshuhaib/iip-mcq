@@ -952,7 +952,7 @@ const allQuestions = [
     related: [135, 137]
   },
   {
-    id: 137,.
+    id: 137,
     question: 'Atlantic charter is an example of',
     options: ["Closed Diplomacy", "Open Diplomacy", "Summit Diplomacy", "Democratic Diplomacy"],
     answer: "Summit Diplomacy",
