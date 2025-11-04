@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Politics MCQ</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="quiz-container">
+        <header class="quiz-header">
+            <h1 class="header-title">Introduction to International Politics</h1>
+            <div class="controls">
+                <button id="shuffle-btn">Shuffle Questions</button>
+                <div class="navigation-group">
+                    <label for="question-jump">Go to:</label>
+                    <input type="number" id="question-jump" min="1" max="200">
+                    <button id="jump-btn">Go</button>
+                </div>
+            </div>
+            <p id="question-counter" class="question-counter">Question 1 / 200</p>
+        </header>
+
+        <main id="quiz-body" class="quiz-body">
+            <div id="question-card" class="question-card">
+                <h2 id="question-text">Loading question...</h2>
+                <ul id="options-list" class="options-list">
+                    </ul>
+            </div>
+
+            <div class="pagination">
+                <button id="prev-btn">Previous</button>
+                <button id="next-btn">Next</button>
+            </div>
+
+            <div id="related-container" class="related-container">
+                <h3>Related Questions:</h3>
+                <div id="related-list" class="related-list">
+                    </div>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
