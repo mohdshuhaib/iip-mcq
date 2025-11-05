@@ -633,7 +633,7 @@ const allQuestions = [
     id: 91,
     question: 'Location altitude, rainfall and wind determine',
     options: ["Weather", "Heat", "Climate", "Rain"],
-    answer: "Climate",
+    answer: "Rain",
     related: [13, 33, 89]
   },
   {
