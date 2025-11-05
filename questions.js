@@ -381,7 +381,7 @@ const allQuestions = [
     id: 55,
     question: 'When did INP chair came into existence',
     options: ["1920", "1919", "1925", "1500"],
-    answer: "1919",
+    answer: "1925",
     related: [56]
   },
   {
