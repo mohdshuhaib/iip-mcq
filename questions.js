@@ -619,7 +619,7 @@ const allQuestions = [
     id: 89,
     question: '"Foreign Policy of a Nation is shaped by Geography" who said it',
     options: ["Stalin", "Lenin", "Marx", "Napoleon"],
-    answer: "Napoleon",
+    answer: "Marx",
     related: [33]
   },
   {
