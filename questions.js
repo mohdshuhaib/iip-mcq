@@ -605,7 +605,7 @@ const allQuestions = [
     id: 87,
     question: 'Extreme Nationalism is called',
     options: ["Monism", "Feudalism", "Chauvinism", "Liberalism"],
-    answer: "Chauvinism",
+    answer: "Feudalism",
     related: [48, 81, 86]
   },
   {
@@ -633,7 +633,7 @@ const allQuestions = [
     id: 91,
     question: 'Location altitude, rainfall and wind determine',
     options: ["Weather", "Heat", "Climate", "Rain"],
-    answer: "Rain",
+    answer: "Climate",
     related: [13, 33, 89]
   },
   {
