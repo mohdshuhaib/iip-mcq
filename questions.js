@@ -1172,7 +1172,7 @@ const allQuestions = [
     id: 168,
     question: 'Armament and ....',
     options: ["Buffer", "Disarmament", "Terror", "Counter armament"],
-    answer: "Counter armament",
+    answer: "Disarmament",
     related: [22, 40, 198]
   },
   {
