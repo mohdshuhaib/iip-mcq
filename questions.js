@@ -997,7 +997,7 @@ const allQuestions = [
     id: 143,
     question: 'Consistency is a quality of.........',
     options: ["war", "Publicity", "Diplomacy", "Propaganda"],
-    answer: "Propaganda",
+    answer: "Diplomacy",
     related: [23, 140, 141, 142]
   },
   {
