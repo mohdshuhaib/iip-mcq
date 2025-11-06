@@ -353,7 +353,7 @@ const allQuestions = [
     id: 51,
     question: 'National Flag is a Symbol of',
     options: ["Integration", "Disintegration", "Realism", "Gandhism"],
-    answer: "Integration",
+    answer: "Realism",
     related: [48, 81]
   },
   {
