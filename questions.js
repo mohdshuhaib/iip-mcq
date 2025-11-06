@@ -843,7 +843,7 @@ const allQuestions = [
     id: 121,
     question: 'Diplomacy is the management of...',
     options: ["IN Politics", "IN Relations", "Foreign Policy", "Foreign Trade"],
-    answer: "IN Relations",
+    answer: "Foreign Policy",
     related: [19, 122, 194]
   },
   {
