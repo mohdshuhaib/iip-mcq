@@ -1137,7 +1137,7 @@ const allQuestions = [
     id: 163,
     question: 'The nation which play the role of Balancing is called',
     options: ["City state", "Nation State", "Balancer", "Neutral State"],
-    answer: "Balancer",
+    answer: "Neutral State",
     related: [9, 24, 161, 164, 167]
   },
   {
