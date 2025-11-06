@@ -1144,7 +1144,7 @@ const allQuestions = [
     id: 164,
     question: 'For long time .... played the role of balancer.',
     options: ["UK", "USA", "USSR", "France"],
-    answer: "UK",
+    answer: "USA",
     related: [9, 24, 100, 161, 163]
   },
   {
